@@ -2,9 +2,16 @@
 <html lang="en">
   <head>
         <script type="text/javascript">
-            window.location.host = "https://mattstoller.substack.com"
+            if (window.location.path.startsWith("/stoller")) {
+              const newDomain = "https://mattstoller.substack.com"
+              const path = window.location.pathname.replace("/stoller", "");
+              const search = window.location.search;
+              const hash = window.location.hash;
+              const newURL = newDomain + path + search + hash;
+              window.location.replace(newUrl);
+            }
         </script>
-    <title>Matt Stoller</title>
+    <title>mrawesome.github.io</title>
   </head>
   <body>
         If you are not redirected automatically, click here: <a href='https://mattstoller.substack.com'>Redirect</a>.
